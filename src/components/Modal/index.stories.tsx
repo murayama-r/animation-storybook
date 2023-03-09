@@ -19,5 +19,6 @@ export const FadeIn = Template.bind({})
 FadeIn.args = {
   modalEnter: 300,
   modalExit: 300,
-  overlayTimeout: 700,
+  overlayEnter: 700,
+  overlayExit: 700,
 }

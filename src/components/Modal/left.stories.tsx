@@ -1,22 +1,22 @@
 import { Meta, Story } from '@storybook/react/types-6-0'
 import React, { ComponentProps } from 'react'
 
-import { ModalRight } from './right'
+import { ModalLeft } from './left'
 
 export default {
-  component: ModalRight,
+  component: ModalLeft,
   title: 'atoms/Modal',
 } as Meta
 
-type Props = ComponentProps<typeof ModalRight>
+type Props = ComponentProps<typeof ModalLeft>
 
 const Template: Story<Props> = (args) => {
-  return <ModalRight {...args} />
+  return <ModalLeft {...args} />
 }
 
-export const Right = Template.bind({})
+export const Left = Template.bind({})
 
-Right.args = {
+Left.args = {
   modalEnter: 500,
   modalExit: 400,
   overlayEnter: 700,

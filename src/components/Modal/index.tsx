@@ -7,13 +7,15 @@ import { Overlay } from './Overlay'
 type Props = {
   modalEnter: number
   modalExit: number
-  overlayTimeout: number
+  overlayEnter: number
+  overlayExit: number
 }
 
 export const Modal: FC<Props> = ({
   modalEnter = 300,
   modalExit = 300,
-  overlayTimeout = 700,
+  overlayEnter = 700,
+  overlayExit = 700,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const openModal = () => setIsOpen(true)
@@ -48,7 +50,8 @@ export const Modal: FC<Props> = ({
       <Overlay
         isOpen={isOpen}
         closeModal={closeModal}
-        timeout={overlayTimeout}
+        overlayEnter={overlayEnter}
+        overlayExit={overlayExit}
       />
     </div>
   )

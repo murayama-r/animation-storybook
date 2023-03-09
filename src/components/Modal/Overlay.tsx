@@ -5,16 +5,30 @@ import { CSSTransition } from 'react-transition-group'
 type Props = {
   isOpen: boolean
   closeModal: () => void
-  timeout: number
+  overlayEnter: number
+  overlayExit: number
 }
 
-export const Overlay: FC<Props> = ({ isOpen, closeModal, timeout = 700 }) => {
+export const Overlay: FC<Props> = ({
+  isOpen,
+  closeModal,
+  overlayEnter = 700,
+  overlayExit = 700,
+}) => {
+  const transitionTimeout =
+    overlayEnter > overlayExit
+      ? overlayEnter > 700
+        ? overlayEnter
+        : 700
+      : overlayExit > 700
+      ? overlayExit
+      : 700
   return (
-    <TransitionStyle timeout={timeout}>
+    <TransitionStyle overlayEnter={overlayEnter} overlayExit={overlayExit}>
       <CSSTransition
         classNames="overlay"
         in={isOpen}
-        timeout={timeout}
+        timeout={transitionTimeout}
         unmountOnExit
       >
         <OverlayStyle onClick={closeModal} />
@@ -23,7 +37,10 @@ export const Overlay: FC<Props> = ({ isOpen, closeModal, timeout = 700 }) => {
   )
 }
 
-const TransitionStyle = styled.div<{ timeout: number }>`
+const TransitionStyle = styled.div<{
+  overlayEnter: number
+  overlayExit: number
+}>`
   .overlay-enter {
     opacity: 0;
   }
@@ -31,8 +48,8 @@ const TransitionStyle = styled.div<{ timeout: number }>`
   .overlay-enter-active {
     opacity: 1;
     transform: translateX(0);
-    transition: opacity ${({ timeout }) => timeout}ms,
-      transform ${({ timeout }) => timeout}ms;
+    transition: opacity ${({ overlayEnter }) => overlayEnter}ms,
+      transform ${({ overlayEnter }) => overlayEnter}ms;
   }
 
   .overlay-exit {
@@ -41,8 +58,8 @@ const TransitionStyle = styled.div<{ timeout: number }>`
 
   .overlay-exit-active {
     opacity: 0;
-    transition: opacity ${({ timeout }) => timeout}ms,
-      transform ${({ timeout }) => timeout}ms;
+    transition: opacity ${({ overlayExit }) => overlayExit}ms,
+      transform ${({ overlayExit }) => overlayExit}ms;
   }
 `
 

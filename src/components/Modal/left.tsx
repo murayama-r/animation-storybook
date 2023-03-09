@@ -11,7 +11,7 @@ type Props = {
   overlayExit: number
 }
 
-export const ModalRight: FC<Props> = ({
+export const ModalLeft: FC<Props> = ({
   modalEnter = 500,
   modalExit = 400,
   overlayEnter = 700,
@@ -69,21 +69,19 @@ const TransitionStyle = styled.div<{
   .modal-wrapper {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     height: 100%;
     width: 50vw;
     z-index: 2;
 
     &.modal-enter {
-      left: initial;
       overflow: hidden;
-      right: -50vw;
+      left: -50vw;
     }
 
     &.modal-enter-active {
-      left: initial;
       overflow: hidden;
-      right: 0;
+      left: 0;
       transition: all ${({ enter }) => enter}ms;
     }
 
@@ -93,9 +91,8 @@ const TransitionStyle = styled.div<{
     }
 
     &.modal-exit-active {
-      left: initial;
       overflow: hidden;
-      right: -50vw;
+      left: -50vw;
       transition: all ${({ exit }) => exit}ms;
     }
   }
