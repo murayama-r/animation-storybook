@@ -123,6 +123,7 @@ const Left = styled.button`
   }
   :focus {
     background-color: ${color.black};
+    border: 1px dotted ${color.white};
     opacity: 0.4;
   }
 `
@@ -153,6 +154,7 @@ const Right = styled.button`
   }
   :focus {
     background-color: ${color.black};
+    border: 1px dotted ${color.white};
     opacity: 0.4;
   }
 `

@@ -5,4 +5,5 @@ export const color = {
   paleGray: '#F4F4F4',
   white: '#FFFFFF',
   main: '#1BA1FF',
+  blue: '#1C5DB5',
 } as const
