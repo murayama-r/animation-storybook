@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import ArrowRight from '/public/svg/down-arrow.svg'
-import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -14,15 +12,6 @@ export default function Home() {
       <main>
         <div>
           <span>aaaa</span>
-          <ArrowRight
-            height={48}
-            width={48}
-            fill={'red'}
-            stroke={'red'}
-            strokeWidth={2}
-          />
-
-          <img src="/arrow-type-1-right.png" alt="" width={16} height={16} />
         </div>
       </main>
     </>
