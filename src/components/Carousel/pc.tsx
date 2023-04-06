@@ -9,7 +9,6 @@ export const CarouselPC: FC<Props> = () => {
   const contents = [1, 2, 3, 4, 5, 6, 7, 8]
   const onClickHandle = (index: number) => {
     scrollTo(index)
-    console.log(index)
   }
 
   const isAvailableAdd = start < contents.length - 3

@@ -8,26 +8,6 @@ export const Rentacar: FC<Props> = () => {
   const [dispaly, setDisplay] = useState(0)
   const samnail = [0, 1, 2, 3]
 
-  const onLeftClickHandle = (index: number) => {
-    if (dispaly < 1) {
-      setDisplay(samnail.slice(-1)[0])
-      scrollTo(samnail.slice(-1)[0])
-    } else {
-      setDisplay(index - 1)
-      scrollTo(index - 1)
-    }
-  }
-
-  const onRightClickHandle = (index: number) => {
-    if (dispaly === samnail.slice(-1)[0]) {
-      setDisplay(samnail[0])
-      scrollTo(samnail[0])
-    } else {
-      setDisplay(index + 1)
-      scrollTo(index + 1)
-    }
-  }
-
   const onRentacarClickHandle = (index: number) => {
     setDisplay(index)
     scrollTo(index)
